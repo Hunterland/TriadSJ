@@ -1,4 +1,4 @@
-# 🕺 SISTEMA TRIAD: Sistema para gerenciamento de breaking - MVP
+# 🕺 SISTEMA TRIAD: Sistema para gerenciar eventos de breaking locais - MVP
 
 Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de gerenciamento de eventos de Breaking. Ele foi pensado para atender às demandas básicas de julgamento, organização de brackets e exibição de resultados em tempo real.
 
