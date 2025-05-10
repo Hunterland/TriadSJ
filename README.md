@@ -74,8 +74,8 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/seuusuario/breaking-judgment-system.git
-cd breaking-judgment-system
+git clone https://github.com/seuusuario/TriadSJ.git
+cd TriadSJ
 ```
 
 2. Abra o `index.html` no navegador ou use uma extensão como **Live Server** no VSCode.
