@@ -1,14 +1,23 @@
+# 🕺 SISTEMA TRIAD: Sistema para gerenciamento de breaking - MVP
 
-# 🕺 Breaking Judgment System
+Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de gerenciamento de eventos de Breaking. Ele foi pensado para atender às demandas básicas de julgamento, organização de brackets e exibição de resultados em tempo real.
 
-Sistema web para gerenciamento e julgamento de batalhas de **Breaking**, com foco em fluidez, tempo real e modularidade. Este projeto é um MVP funcional, responsivo e leve, feito com tecnologias web básicas.
+---
+
+## 📌 Funcionalidades Principais
+
+- ✅ **Autenticação de Jurados**
+- ✅ **Interface de Pré-seleção com sliders de avaliação**
+- ✅ **Interface Tríplice com julgamento comparativo entre dois dançarinos**
+- ✅ **Painel de Resultados em Tempo Real**
+- ✅ **Gerenciamento de Brackets (Chaveamento Dinâmico)**
 
 ---
 
 ## 📦 Estrutura do Projeto
 
 ```
-📁 /breaking-judgment-system
+📁 /TRIADSJ
 ├── index.html                  # Tela de login
 ├── 📁 pages/
 │   ├── pre-selecao.html       # Interface de julgamento (pré-seleção)
@@ -41,24 +50,22 @@ Sistema web para gerenciamento e julgamento de batalhas de **Breaking**, com foc
 
 ---
 
-## ✅ Funcionalidades do MVP
+## 📌 Funcionalidades Principais do MVP
 
-- 🔐 **Login com controle de função** (jurado, público, admin)
-- 📝 **Julgamento por Pré-Seleção** (sim/não)
-- 🎛️ **Julgamento Tríplice** (técnica, criatividade, performance)
-- 📊 **Painel ao vivo** (atualização em tempo real)
-- 🧩 **Chaveamento de Brackets** (arrastar e soltar, eliminatórias)
-
+- ✅ **Autenticação de Jurados**
+- ✅ **Interface de Pré-seleção com sliders de avaliação**
+- ✅ **Interface Tríplice com julgamento comparativo entre dois dançarinos**
+- ✅ **Painel de Resultados em Tempo Real**
+- ✅ **Gerenciamento de Brackets (Chaveamento Dinâmico)**
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🧪 Tecnologias Utilizadas
 
 - **HTML5** + **CSS3 (modularizado)**
 - **JavaScript (Vanilla)** estruturado em módulos
 - **Socket.IO ou WebSocket** (para tempo real)
 - **Fetch API** (para simulação de backend)
 
-> Este projeto é 100% frontend, mas pode ser facilmente integrado com um backend em FastAPI, Express ou Firebase.
 
 ---
 
@@ -75,33 +82,22 @@ cd breaking-judgment-system
 
 ---
 
-## 📅 Metodologia de Desenvolvimento
+## 🚀 Metodologia Ágil
 
-Este MVP segue o modelo **Scrum** com tarefas organizadas em um **Kanban**, incluindo:
+O desenvolvimento do MVP foi estruturado com base em:
 
-- **Sprint 1:** Login + Pré-seleção
-- **Sprint 2:** Tríplice + Tempo real
-- **Sprint 3:** Painel + Brackets
-- **Sprint 4:** Refino visual + Testes + Deploy
-
----
-
-## 🧩 Sugestão de Evolução
-
-- Integração com backend (FastAPI ou Firebase)
-- Armazenamento de pontuação no banco de dados
-- Exportação de resultados em PDF ou Excel
-- Responsividade mobile completa
-- Autenticação com Google/Facebook
+- **Scrum**: Ciclos curtos de entrega com Sprints semanais
+- **Kanban**: Organização e priorização visual de tarefas com colunas (To Do, In Progress, Done)
+- **Daily meetings** e **Sprint reviews** para acompanhar o progresso
 
 ---
 
-## 📄 Licença
+## 📞 Contato
 
-MIT License — sinta-se livre para usar e modificar este sistema conforme necessário.
+- 📱 WhatsApp: [Fale comigo](https://api.whatsapp.com/send/?phone=5592993818973&text&type=phone_number&app_absent=0)
+- 📷 Instagram: [@hunterland95](https://www.instagram.com/hunterland95/)
+- 💼 LinkedIn: [Alan Barroncas](https://www.linkedin.com/in/alan-barroncas95/)
 
 ---
 
-## 🙋 Contato
-
-Dúvidas ou ideias? Fale comigo em: **seuemail@exemplo.com**
+Desenvolvido com 💡 e 🎧 para a comunidade do **Breaking** no amazonas.
