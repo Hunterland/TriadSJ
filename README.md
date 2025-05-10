@@ -50,15 +50,6 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 
 ---
 
-## 📌 Funcionalidades Principais do MVP
-
-- ✅ **Autenticação de Jurados**
-- ✅ **Interface de Pré-seleção com sliders de avaliação**
-- ✅ **Interface Tríplice com julgamento comparativo entre dois dançarinos**
-- ✅ **Painel de Resultados em Tempo Real**
-- ✅ **Gerenciamento de Brackets (Chaveamento Dinâmico)**
----
-
 ## 🧪 Tecnologias Utilizadas
 
 - **HTML5** + **CSS3 (modularizado)**
