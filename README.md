@@ -74,10 +74,15 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 
 ## 🧪 Tecnologias Utilizadas
 
-- **HTML5** + **CSS3 (modularizado)**
-- **JavaScript (Vanilla)** estruturado em módulos
-- **Socket.IO ou WebSocket** (para tempo real)
-- **Fetch API** (para simulação de backend)
+* **HTML5** + **CSS3 (modularizado)**
+* **JavaScript (Vanilla)** estruturado em módulos
+* **Bootstrap 5** (para o layout responsivo e componentes)
+* **Socket.IO ou WebSocket** (para tempo real)
+* **Fetch API** (para simulação de backend)
+
+---
+
+Agora o **Bootstrap 5** está devidamente mencionado como a biblioteca principal para o layout do projeto. Se precisar de mais alguma alteração, é só avisar!
 
 
 ---
