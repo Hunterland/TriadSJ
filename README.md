@@ -17,36 +17,58 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 ## 📦 Estrutura do Projeto
 
 ```
-📁 /TRIADSJ
-├── index.html                  # Tela de login
-├── 📁 pages/
-│   ├── pre-selecao.html       # Interface de julgamento (pré-seleção)
-│   ├── triplice.html          # Interface Tríplice
-│   ├── painel.html            # Painel de resultado em tempo real
-│   └── brackets.html          # Novo: Gerenciamento de brackets
+/TRIADSJ
+├── index.html                        # Tela de login (com Bootstrap)
+│
+├── 📁 pages/                         # Telas completas do sistema
+│   ├── admin.html                   # NOVO: Dashboard com sidebar e navegação
+│   ├── pre-selecao.html             # Interface de julgamento: pré-seleção
+│   ├── triplice.html                # Interface Tríplice
+│   ├── painel.html                  # Painel de resultado em tempo real
+│   └── brackets.html                # Gerenciamento de brackets
+│
+├── 📁 components/                   # Componentes HTML e JS reutilizáveis
+│   ├── modals/                      # Modais separados
+│   │   ├── eventoModal.html
+│   │   └── juradoModal.html
+│   ├── crud/                        # CRUDs reutilizáveis
+│   │   └── tabelaJurados.html
+│   ├── ui/
+│   │   ├── sidebar.html             # Sidebar para admin
+│   │   └── navbar.html              # Navbar (opcional)
+│   ├── slider.js                    # Slider de pontuação reutilizável
+│   ├── scoreBox.js                  # Caixa de pontuação
+│   └── bracketNode.js               # Nó visual para brackets
+│
 ├── 📁 styles/
-│   ├── base.css               # Reset e estilo base
-│   ├── layout.css             # Grid e containers
-│   ├── components.css         # Estilização de componentes reutilizáveis
-│   └── theme.css              # Cores e variáveis
+│   ├── bootstrap.min.css            # Biblioteca Bootstrap (v5.3)
+│   ├── bootstrap-icons.css          # Ícones Bootstrap
+│   ├── custom.css                   # Estilos personalizados e overrides
+│   └── theme.css                    # Variáveis de cor, fontes e ajustes visuais
+│
 ├── 📁 scripts/
-│   ├── auth.js                # Login e controle de acesso por função
-│   ├── preSelecao.js          # Lógica da pré-seleção
-│   ├── triplice.js            # Lógica da avaliação tríplice
-│   ├── painel.js              # Atualização do painel em tempo real
-│   └── brackets.js            # Novo: Lógica de chaveamento interativo
+│   ├── main.js                      # Alternância de seções, lógica comum
+│   ├── auth.js                      # Login e acesso
+│   ├── admin.js                     # Lógica geral do dashboard admin
+│   ├── preSelecao.js                # Avaliação pré-seleção
+│   ├── triplice.js                  # Avaliação tríplice
+│   ├── painel.js                    # Painel de resultado em tempo real
+│   ├── brackets.js                  # Chaveamento visual interativo
+│   └── crudJurados.js               # CRUD de jurados
+│
 ├── 📁 utils/
-│   ├── api.js                 # Comunicação simulada com backend (fetch)
-│   └── socket.js              # Conexão em tempo real (Socket.IO ou WebSocket)
-├── 📁 components/
-│   ├── slider.js              # Componente de slider reutilizável
-│   ├── scoreBox.js            # Caixa de pontuação
-│   ├── modal.js               # Modais reutilizáveis
-│   └── bracketNode.js         # Novo: Nó visual para brackets
-└── 📁 assets/
-    ├── icons/                 # Ícones SVG ou PNG
-    └── fonts/                 # Tipografias personalizadas
-```
+│   ├── api.js                       # Comunicação com backend (fetch/Axios)
+│   └── socket.js                    # Comunicação em tempo real
+│
+├── 📁 assets/
+│   ├── icons/                       # Ícones (SVG/PNG)
+│   ├── fonts/                       # Fontes personalizadas
+│   └── img/                         # Logos, banners, etc.
+│
+└── 📁 libs/                         # Bibliotecas de terceiros (opcional)
+    ├── bootstrap.bundle.min.js
+    └── chart.min.js                # (opcional) para estatísticas e gráficos
+
 
 ---
 
