@@ -22,57 +22,59 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 # frontend
 
 ```
-/TRIADSJ
-├── index.html                       # Tela de login (com Bootstrap)
+TRIADS/
+├── assets/
+│   ├── fonts/
+│   └── icons/
 │
-├── 📁 pages/                       # Telas completas do sistema
-│   ├── admin.html                   # NOVO: Dashboard com sidebar e navegação
-│   ├── pre-selecao.html             # Interface de julgamento: pré-seleção
-│   ├── triplice.html                # Interface Tríplice
-│   ├── painel.html                  # Painel de resultado em tempo real
-│   └── brackets.html                # Gerenciamento de brackets
+├── components/
+│   ├── slider.js
+│   └── modal/                   # Novos componentes modais
+│       ├── criarEventoModal.html
+│       └── gerenciarEventoModal.html
 │
-├── 📁 components/                   # Componentes HTML e JS reutilizáveis
-│   ├── modals/                      # Modais separados
-│   │   ├── eventoModal.html
-│   │   └── juradoModal.html
-│   ├── crud/                        # CRUDs reutilizáveis
-│   │   └── tabelaJurados.html
-│   ├── ui/
-│   │   ├── sidebar.html             # Sidebar para admin
-│   │   └── navbar.html              # Navbar (opcional)
-│   ├── slider.js                    # Slider de pontuação reutilizável
-│   ├── scoreBox.js                  # Caixa de pontuação
-│   └── bracketNode.js               # Nó visual para brackets
+├── pages/
+│   ├── admin/                   # Separando por domínio
+│   │   ├── index.html           # Era admin.html
+│   │   └── relatorios.html
+│   ├── brackets/
+│   │   └── index.html
+│   ├── painel/
+│   │   └── index.html
+│   ├── pre-selecao/
+│   │   └── index.html
+│   └── triplice/
+│       └── index.html
 │
-├── 📁 styles/
-│   ├── bootstrap.min.css            # Biblioteca Bootstrap (v5.3)
-│   ├── bootstrap-icons.css          # Ícones Bootstrap
-│   ├── custom.css                   # Estilos personalizados e overrides
-│   └── theme.css                    # Variáveis de cor, fontes e ajustes visuais
+├── scripts/
+│   ├── admin/
+│   │   ├── index.js
+│   │   ├── eventos.js           # Fluxo de eventos
+│   │   ├── jurados.js           # Jurados
+│   │   └── relatorios.js        # Relatórios
+│   ├── brackets.js
+│   ├── painel.js
+│   ├── preSelecao.js
+│   ├── triplice.js
+│   └── auth.js
 │
-├── 📁 scripts/
-│   ├── main.js                      # Alternância de seções, lógica comum
-│   ├── auth.js                      # Login e acesso
-│   ├── admin.js                     # Lógica geral do dashboard admin
-│   ├── preSelecao.js                # Avaliação pré-seleção
-│   ├── triplice.js                  # Avaliação tríplice
-│   ├── painel.js                    # Painel de resultado em tempo real
-│   ├── brackets.js                  # Chaveamento visual interativo
-│   └── crudJurados.js               # CRUD de jurados
+├── styles/
+│   ├── base.css
+│   ├── layout.css
+│   ├── components.css
+│   ├── admin/
+│   │   ├── index.css
+│   │   └── modal.css
+│   └── painel/
+│       └── painel.css
 │
-├── 📁 utils/
-│   ├── api.js                       # Comunicação com backend (fetch/Axios)
-│   └── socket.js                    # Comunicação em tempo real
+├── utils/
+│   ├── api.js
+│   └── socket.js
 │
-├── 📁 assets/
-│   ├── icons/                       # Ícones (SVG/PNG)
-│   ├── fonts/                       # Fontes personalizadas
-│   └── img/                         # Logos, banners, etc.
-│
-└── 📁 libs/                         # Bibliotecas de terceiros (opcional)
-    ├── bootstrap.bundle.min.js
-    └── chart.min.js                # (opcional) para estatísticas e gráficos
+├── index.html
+└── README.md
+
 ```
 
 
