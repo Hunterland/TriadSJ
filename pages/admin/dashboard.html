@@ -18,7 +18,7 @@
     />
 
     <!-- Folha de estilo personalizada -->
-    <link rel="stylesheet" href="../styles/admin.css" />
+    <link rel="stylesheet" href="../../styles/dashboard.css" />
   </head>
 
   <body>
@@ -235,7 +235,7 @@
       <div id="painel" class="tela d-none">
         <h3>Painel de Resultados</h3>
         <p>
-          <a href="painel.html" class="btn btn-outline-success"
+          <a href="/pages/admin/painel.html" class="btn btn-outline-success"
             >Ver Painel em Tempo Real</a
           >
         </p>
@@ -300,43 +300,143 @@
             ></button>
           </div>
           <div class="modal-body">
-            <!-- Abas -->
-            <ul class="nav nav-tabs mb-3" role="tablist">
-              <li class="nav-item" role="presentation">
+            <!-- Abas do modal -->
+            <ul class="nav nav-tabs" id="abasGerenciar" role="tablist">
+              <li class="nav-item">
                 <button
                   class="nav-link active"
                   data-bs-toggle="tab"
                   data-bs-target="#aba-jurados"
-                  type="button"
-                  role="tab"
                 >
                   Jurados
                 </button>
               </li>
-              <li class="nav-item" role="presentation">
+              <li class="nav-item">
                 <button
                   class="nav-link"
                   data-bs-toggle="tab"
                   data-bs-target="#aba-interface"
-                  type="button"
-                  role="tab"
                 >
                   Interface de Julgamento
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#aba-ranking"
+                >
+                  Ranking
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#aba-historico"
+                >
+                  Modalidades
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  class="nav-link"
+                  data-bs-toggle="tab"
+                  data-bs-target="#aba-config-geral"
+                >
+                  Outras Configurações
                 </button>
               </li>
             </ul>
 
             <!-- Conteúdo das abas -->
-            <div class="tab-content">
+            <div class="tab-content mt-3">
+              <!-- Jurados -->
               <div
                 class="tab-pane fade show active"
                 id="aba-jurados"
                 role="tabpanel"
               >
-                <p>Em breve: formulário e lista de jurados.</p>
+                <p>Selecione jurados para este evento:</p>
+                <div id="listaJuradosEvento">
+                  <!-- A lista será preenchida via JS com base no localStorage ou backend -->
+                </div>
+                <button
+                  class="btn btn-sm btn-primary mt-2"
+                  onclick="atribuirJuradosAoEvento()"
+                >
+                  Atribuir Jurados
+                </button>
               </div>
+
+              <!-- Interface de julgamento -->
               <div class="tab-pane fade" id="aba-interface" role="tabpanel">
-                <p>Em breve: configurações da interface de julgamento.</p>
+                <p>Escolha a interface de julgamento para este evento:</p>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="triplice.html"
+                    id="interfaceTriplice"
+                  />
+                  <label class="form-check-label" for="interfaceTriplice">
+                    Tríplice Interface
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value="pre-selecao.html"
+                    id="interfacePreSelecao"
+                  />
+                  <label class="form-check-label" for="interfacePreSelecao">
+                    Pré-Seleção Interface
+                  </label>
+                </div>
+
+                <button
+                  class="btn btn-sm btn-success mt-2"
+                  onclick="salvarInterfaceJulgamento()"
+                >
+                  Salvar Interface(s)
+                </button>
+              </div>
+
+              <!-- Ranking -->
+              <div class="tab-pane fade" id="aba-ranking" role="tabpanel">
+                <p>
+                  Visualizar ou exportar ranking de pontuação dos competidores
+                  deste evento.
+                </p>
+                <button
+                  class="btn btn-outline-secondary"
+                  onclick="exportarRankingDoEvento()"
+                >
+                  Exportar Ranking
+                </button>
+              </div>
+
+              <!-- Histórico de batalhas -->
+              <div class="tab-pane fade" id="aba-historico" role="tabpanel">
+                <p>
+                  Visualize o histórico de batalhas disputadas neste evento.
+                </p>
+                <div id="historicoBatalhas">
+                  <!-- Será alimentado por JS no futuro -->
+                  <p>Em breve...</p>
+                </div>
+              </div>
+
+              <!-- Configurações adicionais -->
+              <div class="tab-pane fade" id="aba-config-geral" role="tabpanel">
+                <p>
+                  Outras configurações específicas do evento (ex: tempo de
+                  round, empates, etc).
+                </p>
+                <p>Em breve...</p>
               </div>
             </div>
           </div>
@@ -346,6 +446,6 @@
 
     <!-- Scripts -CDN | script admin -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../scripts/admin.js"></script>
+    <script src="../../scripts/dashboard.js"></script>
   </body>
 </html>
