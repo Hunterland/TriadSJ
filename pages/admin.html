@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <!-- Bootstrap & Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        min-height: 100vh;
+      }
+      .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #343a40;
+        color: #fff;
+        padding-top: 1rem;
+      }
+      .sidebar a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 0.75rem 1.25rem;
+      }
+      .sidebar a:hover {
+        background-color: #495057;
+      }
+      .main-content {
+        margin-left: 250px;
+        padding: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <h4 class="text-center mb-4">Administração</h4>
+      <a href="#" onclick="mostrarTela('home')"
+        ><i class="bi bi-house"></i> Início</a
+      >
+      <a href="#" onclick="mostrarTela('evento')"
+        ><i class="bi bi-calendar-plus"></i> Criar Evento</a
+      >
+      <a href="#" onclick="mostrarTela('jurados')"
+        ><i class="bi bi-people"></i> Jurados</a
+      >
+      <a href="#" onclick="mostrarTela('brackets')"
+        ><i class="bi bi-diagram-3"></i> Brackets</a
+      >
+      <a href="#" onclick="mostrarTela('painel')"
+        ><i class="bi bi-display"></i> Painel ao Vivo</a
+      >
+      <a href="#" onclick="mostrarTela('config')"
+        ><i class="bi bi-gear"></i> Configurações</a
+      >
+      <a href="#" onclick="mostrarTela('relatorios')">
+        <i class="bi bi-file-earmark-bar-graph"></i> Relatórios
+      </a>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+      <div id="home" class="tela">
+        <h2>Bem-vindo ao Painel de Administração</h2>
+        <p>Selecione uma opção no menu lateral para começar.</p>
+      </div>
+
+      <div id="evento" class="tela d-none">
+        <!-- Conteúdo: formulário + modal para criar evento -->
+      </div>
+
+      <div id="jurados" class="tela d-none">
+        <!-- Conteúdo: formulário e tabela CRUD de jurados -->
+      </div>
+
+      <div id="brackets" class="tela d-none">
+        <h3>Brackets</h3>
+        <p>
+          <a href="brackets.html" class="btn btn-outline-primary"
+            >Acessar Brackets</a
+          >
+        </p>
+      </div>
+
+      <div id="painel" class="tela d-none">
+        <h3>Painel de Resultados</h3>
+        <p>
+          <a href="painel.html" class="btn btn-outline-success"
+            >Ver Painel em Tempo Real</a
+          >
+        </p>
+      </div>
+
+      <div id="config" class="tela d-none">
+        <h3>Configurações Gerais</h3>
+        <p>Aqui você poderá configurar detalhes adicionais do sistema.</p>
+      </div>
+
+      <div id="relatorios" class="tela d-none">
+        <h3>Relatórios</h3>
+        <p>Aqui você poderá configurar detalhes adicionais do sistema.</p>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      function mostrarTela(telaId) {
+        document
+          .querySelectorAll(".tela")
+          .forEach((t) => t.classList.add("d-none"));
+        document.getElementById(telaId).classList.remove("d-none");
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -6,35 +6,41 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 
 ## 📌 Funcionalidades Principais
 
-- ✅ **Autenticação de Jurados**
+- ✅ **Acesso e Gerenciamento de Jurados**
 - ✅ **Interface de Pré-seleção com sliders de avaliação**
 - ✅ **Interface Tríplice com julgamento comparativo entre dois dançarinos**
 - ✅ **Painel de Resultados em Tempo Real**
 - ✅ **Gerenciamento de Brackets (Chaveamento Dinâmico)**
+- ✅ **Configurações gerais**
+- ✅ **Relatórios (para exportar arquivos de resultados de batalhas)**
+
 
 ---
 
 ## 📦 Estrutura do Projeto
 
+# frontend
+
 ```
 📁 /TRIADSJ
 ├── index.html                  # Tela de login
 ├── 📁 pages/
+|── |── admin.html             # Interface para administração (dashboard)
 │   ├── pre-selecao.html       # Interface de julgamento (pré-seleção)
 │   ├── triplice.html          # Interface Tríplice
 │   ├── painel.html            # Painel de resultado em tempo real
-│   └── brackets.html          # Novo: Gerenciamento de brackets
+│   └── brackets.html          # Gerenciamento de brackets
 ├── 📁 styles/
 │   ├── base.css               # Reset e estilo base
 │   ├── layout.css             # Grid e containers
 │   ├── components.css         # Estilização de componentes reutilizáveis
-│   └── theme.css              # Cores e variáveis
+|── |── admin.css              # folha personalizada
 ├── 📁 scripts/
 │   ├── auth.js                # Login e controle de acesso por função
 │   ├── preSelecao.js          # Lógica da pré-seleção
 │   ├── triplice.js            # Lógica da avaliação tríplice
 │   ├── painel.js              # Atualização do painel em tempo real
-│   └── brackets.js            # Novo: Lógica de chaveamento interativo
+│   └── brackets.js            # Lógica de chaveamento interativo
 ├── 📁 utils/
 │   ├── api.js                 # Comunicação simulada com backend (fetch)
 │   └── socket.js              # Conexão em tempo real (Socket.IO ou WebSocket)
@@ -42,7 +48,7 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 │   ├── slider.js              # Componente de slider reutilizável
 │   ├── scoreBox.js            # Caixa de pontuação
 │   ├── modal.js               # Modais reutilizáveis
-│   └── bracketNode.js         # Novo: Nó visual para brackets
+│   └── bracketNode.js         # Nó visual para brackets
 └── 📁 assets/
     ├── icons/                 # Ícones SVG ou PNG
     └── fonts/                 # Tipografias personalizadas
@@ -50,19 +56,11 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 
 ---
 
-## 📌 Funcionalidades Principais do MVP
-
-- ✅ **Autenticação de Jurados**
-- ✅ **Interface de Pré-seleção com sliders de avaliação**
-- ✅ **Interface Tríplice com julgamento comparativo entre dois dançarinos**
-- ✅ **Painel de Resultados em Tempo Real**
-- ✅ **Gerenciamento de Brackets (Chaveamento Dinâmico)**
----
-
 ## 🧪 Tecnologias Utilizadas
 
-- **HTML5** + **CSS3 (modularizado)**
+- **HTML5** + **CSS3 (modularizado)** (com pastas organizadas)
 - **JavaScript (Vanilla)** estruturado em módulos
+- **Bootstrap v5.3.3 via CDN** (para o layout do sistema)
 - **Socket.IO ou WebSocket** (para tempo real)
 - **Fetch API** (para simulação de backend)
 
@@ -88,7 +86,7 @@ O desenvolvimento do MVP foi estruturado com base em:
 
 - **Scrum**: Ciclos curtos de entrega com Sprints semanais
 - **Kanban**: Organização e priorização visual de tarefas com colunas (To Do, In Progress, Done)
-- **Daily meetings** e **Sprint reviews** para acompanhar o progresso
+- **Sprint reviews** para acompanhar o progresso.
 
 ---
 
