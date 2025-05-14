@@ -23,9 +23,9 @@ Este projeto é um **MVP (Produto Mínimo Viável)** de um sistema completo de g
 
 ```
 /TRIADSJ
-├── index.html                        # Tela de login (com Bootstrap)
+├── index.html                       # Tela de login (com Bootstrap)
 │
-├── 📁 pages/                         # Telas completas do sistema
+├── 📁 pages/                       # Telas completas do sistema
 │   ├── admin.html                   # NOVO: Dashboard com sidebar e navegação
 │   ├── pre-selecao.html             # Interface de julgamento: pré-seleção
 │   ├── triplice.html                # Interface Tríplice
