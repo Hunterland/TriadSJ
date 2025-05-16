@@ -1,33 +1,19 @@
-// Arquivo com funções e lógicas do painel admin //
+// ------------------- MENU SIDEBAR ------------------- //
 
-// Mostrar tela//
+// Mostrar tela
 function mostrarTela(telaId) {
   document.querySelectorAll(".tela").forEach((t) => t.classList.add("d-none"));
   document.getElementById(telaId).classList.remove("d-none");
 }
 
-// Funçao da tela de exportar relatório
-function exportarRelatorio() {
-  const tipo = document.getElementById("tipoRelatorio").value;
-  const preview = document.getElementById("previewRelatorio");
+// ------------------- EVENTOS ------------------- //
 
-  if (tipo === "ranking") {
-    preview.innerHTML =
-      "<strong>Ranking Geral</strong><br>Competidor A - 90pts<br>Competidor B - 85pts";
-  } else if (tipo === "batalhas") {
-    preview.innerHTML =
-      "<strong>Resultados das Batalhas</strong><br>Batalha 1: A vs B - Vencedor: A<br>Batalha 2: C vs D - Vencedor: C";
-  }
-
-  alert("Relatório exportado com sucesso! (simulação)");
-}
-
-// Função do modal de 'criar evento'
 let eventos = JSON.parse(localStorage.getItem("eventos")) || [];
 
 const form = document.getElementById("formEvento");
 const tabelaBody = document.querySelector("#tabelaEventos tbody");
 
+// Criar novo evento
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -60,31 +46,27 @@ form.addEventListener("submit", function (e) {
   setTimeout(() => msg.classList.add("d-none"), 3000);
 });
 
-// Função para atualizar tabela //
+// Atualizar tabela de eventos
 function atualizarTabela() {
   tabelaBody.innerHTML = "";
   eventos.forEach((evento) => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
-        <td>${evento.nome}</td>
-        <td>${evento.organizador}</td>
-        <td>${evento.email}</td>
-        <td>
-          <button class="btn btn-sm btn-warning" onclick="gerenciarEvento(${evento.id})">
-            Gerenciar
-          </button>
-          <button class="btn btn-sm btn-danger" onclick="excluirEvento(${evento.id})">
-            Excluir
-          </button>
-        </td>
-      `;
+      <td>${evento.nome}</td>
+      <td>${evento.organizador}</td>
+      <td>${evento.email}</td>
+      <td>
+        <button class="btn btn-sm btn-warning" onclick="gerenciarEvento(${evento.id})">Gerenciar</button>
+        <button class="btn btn-sm btn-danger" onclick="excluirEvento(${evento.id})">Excluir</button>
+      </td>
+    `;
 
     tabelaBody.appendChild(row);
   });
 }
 
-// Função para Excluir um evento da tabela //
+// Excluir evento
 function excluirEvento(id) {
   if (confirm("Tem certeza que deseja excluir este evento?")) {
     eventos = eventos.filter((evento) => evento.id !== id);
@@ -93,7 +75,7 @@ function excluirEvento(id) {
   }
 }
 
-// Função para gerenciar evento //
+// Gerenciar evento
 function gerenciarEvento(id) {
   const eventoSelecionado = eventos.find((evento) => evento.id === id);
 
@@ -102,20 +84,17 @@ function gerenciarEvento(id) {
     return;
   }
 
-  // Atualiza o título do modal com o nome do evento
   document.getElementById("nomeEventoGerenciar").textContent =
     eventoSelecionado.nome;
-
-  // Abre o modal
   const modal = new bootstrap.Modal(
     document.getElementById("modalGerenciarEvento")
   );
   modal.show();
 
-  // Aqui você pode carregar os jurados e configurações específicas no futuro
+  carregarJuradosParaGerenciamento();
 }
 
-// Salvar interfaces de julgamento em um evento //
+// Interfaces de julgamento
 function salvarInterfaceJulgamento() {
   const selecionadas = [];
 
@@ -131,16 +110,13 @@ function salvarInterfaceJulgamento() {
     return;
   }
 
-  // Aqui você pode salvar no localStorage ou backend vinculado ao evento atual
   console.log("Interfaces atribuídas ao evento:", selecionadas);
-
   alert("Interface(s) atribuída(s) ao evento com sucesso!");
 }
 
-// Carrega tabela ao abrir a tela
 atualizarTabela();
 
-// ------------------- JURADOS -------------------
+// ------------------- JURADOS ------------------- //
 
 let jurados = JSON.parse(localStorage.getItem("jurados")) || [];
 
@@ -162,7 +138,6 @@ formJurado.addEventListener("submit", function (e) {
   localStorage.setItem("jurados", JSON.stringify(jurados));
   atualizarTabelaJurados();
 
-  // Fechar modal
   const modal = bootstrap.Modal.getInstance(
     document.getElementById("modalCadastrarJurado")
   );
@@ -170,7 +145,7 @@ formJurado.addEventListener("submit", function (e) {
   formJurado.reset();
 });
 
-// Atualizar tabela
+// Atualizar tabela de jurados
 function atualizarTabelaJurados() {
   tabelaJurados.innerHTML = "";
   jurados.forEach((j) => {
@@ -198,16 +173,14 @@ function excluirJurado(id) {
   }
 }
 
-// Atualizar ao carregar página
 atualizarTabelaJurados();
 
-// Carregar lista de jurados na aba 'Jurados' no modal de gerenciamento de eventos //
+// Carregar jurados no gerenciamento do evento
 function carregarJuradosParaGerenciamento() {
   const listaJurados = JSON.parse(localStorage.getItem("jurados")) || [];
   const container = document.getElementById("listaJuradosGerenciar");
 
   if (!container) return;
-
   container.innerHTML = "";
 
   if (listaJurados.length === 0) {
@@ -234,4 +207,121 @@ function carregarJuradosParaGerenciamento() {
   });
 }
 
-carregarJuradosParaGerenciamento();
+// Permissão de acesso do jurado
+function definirPermissaoAcessoJurado() {
+  const switchAcesso = document.getElementById("acessoJuradoSwitch");
+  const linkDiv = document.getElementById("linkAcessoJurado");
+
+  if (switchAcesso.checked) {
+    linkDiv.classList.remove("d-none");
+  } else {
+    linkDiv.classList.add("d-none");
+  }
+}
+
+// Copiar link de acesso
+function copiarLinkAcesso() {
+  const input = document.querySelector("#linkAcessoJurado input");
+  input.select();
+  document.execCommand("copy");
+  alert("Link copiado para a área de transferência!");
+}
+
+// ------------------- COMPETIDORES ------------------- //
+
+let competidores = JSON.parse(localStorage.getItem("competidores")) || [];
+const formCompetidor = document.getElementById("formCompetidor");
+const tabelaCompetidores = document.getElementById("tabelaCompetidores");
+
+// Atualizar tabela de competidores
+function atualizarTabelaCompetidores() {
+  tabelaCompetidores.innerHTML = "";
+  competidores.forEach((c) => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${c.nome}</td>
+      <td>${c.apelido}</td>
+      <td>${c.modalidade}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" onclick="editarCompetidor(${c.id})">Editar</button>
+        <button class="btn btn-sm btn-danger" onclick="excluirCompetidor(${c.id})">Excluir</button>
+        <button class="btn btn-sm btn-info" onclick="visualizarCompetidor(${c.id})">Visualizar</button>
+      </td>
+    `;
+    tabelaCompetidores.appendChild(row);
+  });
+}
+
+// Cadastrar/editar competidor
+formCompetidor.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const id = document.getElementById("idCompetidor").value;
+  const nome = document.getElementById("nomeCompetidor").value;
+  const apelido = document.getElementById("apelidoCompetidor").value;
+  const modalidade = document.getElementById("modalidadeCompetidor").value;
+
+  if (id) {
+    const index = competidores.findIndex((c) => c.id == id);
+    competidores[index] = { id: Number(id), nome, apelido, modalidade };
+  } else {
+    competidores.push({
+      id: Date.now(),
+      nome,
+      apelido,
+      modalidade,
+    });
+  }
+
+  localStorage.setItem("competidores", JSON.stringify(competidores));
+  atualizarTabelaCompetidores();
+  bootstrap.Modal.getInstance(
+    document.getElementById("modalCompetidor")
+  ).hide();
+  formCompetidor.reset();
+});
+
+// Editar competidor
+function editarCompetidor(id) {
+  const c = competidores.find((c) => c.id === id);
+  document.getElementById("idCompetidor").value = c.id;
+  document.getElementById("nomeCompetidor").value = c.nome;
+  document.getElementById("apelidoCompetidor").value = c.apelido;
+  document.getElementById("modalidadeCompetidor").value = c.modalidade;
+  new bootstrap.Modal(document.getElementById("modalCompetidor")).show();
+}
+
+// Excluir competidor
+function excluirCompetidor(id) {
+  if (confirm("Deseja excluir este competidor?")) {
+    competidores = competidores.filter((c) => c.id !== id);
+    localStorage.setItem("competidores", JSON.stringify(competidores));
+    atualizarTabelaCompetidores();
+  }
+}
+
+// Visualizar dados do competidor
+function visualizarCompetidor(id) {
+  const c = competidores.find((c) => c.id === id);
+  alert(`Nome: ${c.nome}\nApelido: ${c.apelido}\nModalidade: ${c.modalidade}`);
+}
+
+// Atualizar ao carregar
+atualizarTabelaCompetidores();
+
+// ------------------- RELATÓRIOS ------------------- //
+
+function exportarRelatorio() {
+  const tipo = document.getElementById("tipoRelatorio").value;
+  const preview = document.getElementById("previewRelatorio");
+
+  if (tipo === "ranking") {
+    preview.innerHTML =
+      "<strong>Ranking Geral</strong><br>Competidor A - 90pts<br>Competidor B - 85pts";
+  } else if (tipo === "batalhas") {
+    preview.innerHTML =
+      "<strong>Resultados das Batalhas</strong><br>Batalha 1: A vs B - Vencedor: A<br>Batalha 2: C vs D - Vencedor: C";
+  }
+
+  alert("Relatório exportado com sucesso! (simulação)");
+}
